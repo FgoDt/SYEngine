@@ -8,6 +8,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)MediaExtensionInstaller.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MediaInfo.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MediaInfoWrapper.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)AsyncHelper.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)pch.cpp" />

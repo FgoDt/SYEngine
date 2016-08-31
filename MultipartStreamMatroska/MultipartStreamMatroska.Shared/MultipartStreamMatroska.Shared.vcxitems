@@ -45,6 +45,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)UrlHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)AsyncHelper.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Core\DemuxProxy.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Core\downloader\DownloadCore.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Core\downloader\DownloadTask.h" />

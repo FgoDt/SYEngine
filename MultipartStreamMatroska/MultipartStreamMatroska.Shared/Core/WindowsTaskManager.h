@@ -3,6 +3,7 @@
 
 #include "downloader\TaskManagerBase.h"
 #include <Windows.h>
+#include <wrl.h>
 
 namespace Downloader {
 namespace Windows {
@@ -24,9 +25,12 @@ namespace Windows {
 		class Win32DataSource : public Core::DataSource
 		{
 			HANDLE _hFile;
+			Microsoft::WRL::ComPtr<IStream> _stream;
 		public:
-			explicit Win32DataSource(HANDLE hFile) throw()
+			explicit Win32DataSource(HANDLE hFile) throw():_stream(nullptr)
 			{ _hFile = hFile; }
+			explicit Win32DataSource(Microsoft::WRL::ComPtr<IStream> stream) throw() :_hFile(NULL)
+			{ _stream = stream; }
 			virtual ~Win32DataSource() throw()
 			{ if (_hFile != INVALID_HANDLE_VALUE) CloseHandle(_hFile); }
 

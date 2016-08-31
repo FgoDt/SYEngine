@@ -179,5 +179,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Core\StringArray.h">
       <Filter>Core</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)AsyncHelper.h" />
   </ItemGroup>
 </Project>

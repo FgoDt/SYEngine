@@ -17,6 +17,7 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)AsyncHelper.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Core.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MediaExtensionActivate.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MediaExtensionInstaller.h" />

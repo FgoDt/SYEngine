@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -55,7 +56,6 @@ namespace SYEngineRuntime
             var plist = new SYEngine.Playlist(SYEngine.PlaylistTypes.LocalFile);
             plist.Append(Windows.ApplicationModel.Package.Current.InstalledLocation.Path + "\\MultipartStreamMatroska\\0.mp4", 0, 0);
             plist.Append(Windows.ApplicationModel.Package.Current.InstalledLocation.Path + "\\MultipartStreamMatroska\\1.mp4", 0, 0);
-
             tbPlayStatus.Text = string.Empty;
             player.IsLooping = (bool)cboxLoop.IsChecked;
             SYEngine.Core.ForceSoftwareDecode = (bool)cboxSoftDecode.IsChecked;

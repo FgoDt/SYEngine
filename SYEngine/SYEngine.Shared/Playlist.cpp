@@ -1,4 +1,5 @@
 #include "Playlist.h"
+#include "AsyncHelper.h"
 
 using namespace SYEngine;
 using namespace Windows::Foundation;
@@ -12,9 +13,16 @@ bool Playlist::Append(Platform::String^ url, int sizeInBytes, float durationInSe
 	auto str = url->Data();
 	if (_type == PlaylistTypes::LocalFile) {
 		auto hf = CreateFile2(str, GENERIC_READ, FILE_SHARE_READ, OPEN_EXISTING, NULL);
-		if (hf == INVALID_HANDLE_VALUE)
-			return false;
-		CloseHandle(hf);
+		if (hf == INVALID_HANDLE_VALUE) {
+			try	{
+				AWait(StorageFile::GetFileFromPathAsync(url));
+			}
+			catch (Exception^ e) {
+				return false;
+			}
+		}
+		else
+			CloseHandle(hf);
 	}
 
 	int ansi_size = WideCharToMultiByte(CP_ACP, 0, str, -1, NULL, 0, NULL, NULL);
