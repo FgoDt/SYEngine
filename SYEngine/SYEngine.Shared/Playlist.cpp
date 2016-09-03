@@ -93,13 +93,13 @@ bool Playlist::SaveFile(LPWSTR uri)
 	str[strlen(str) - 1] = 0; //skip \r\n
 	str[strlen(str) - 1] = 0;
 
-	auto temp_folder = ApplicationData::Current->TemporaryFolder->Path->Data();
+	auto temp_path = ApplicationData::Current->TemporaryFolder->Path;
+	auto temp_folder = temp_path->Data();	
 	WCHAR temp_file[MAX_PATH] = {};
 	StringCchPrintfW(temp_file, _countof(temp_file),
 		L"%s\\MultipartStreamMatroska_%d.txt",
-		temp_folder, (int)GetTickCount64());
-
-	DeleteFileW(temp_file);
+		temp_folder, (int)GetTickCount64()); 
+	OutputDebugString(temp_folder);
 	auto file = CreateFile2(temp_file, GENERIC_WRITE, 0, CREATE_ALWAYS, NULL);
 	if (file == INVALID_HANDLE_VALUE) {
 		free(str);

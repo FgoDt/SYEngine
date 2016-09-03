@@ -149,7 +149,7 @@ CommonResult WindowsTaskManager::Win32DataSource::GetLength(int64_t* size)
 		*size = info.EndOfFile.QuadPart;
 	}
 	else if (_stream != nullptr) {
-		STATSTG streamStats;
+		STATSTG streamStats = {};
 		_stream->Stat(&streamStats, 0);
 		*size = streamStats.cbSize.QuadPart;
 	}

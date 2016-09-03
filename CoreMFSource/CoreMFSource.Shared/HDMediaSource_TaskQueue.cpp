@@ -111,8 +111,8 @@ HRESULT HDMediaSource::ProcessOperationError(HRESULT hrStatus) throw()
 
 	if (_state == STATE_OPENING)
 		return CompleteOpen(hrStatus);
-	else if (_state != STATE_SHUTDOWN)
-		return QueueEvent(MEError,GUID_NULL,hrStatus,nullptr);
+	else if (_state != STATE_SHUTDOWN&&_state != STATE_STARTED)
+		return QueueEvent(MEError, GUID_NULL, hrStatus, nullptr);
 
 	return S_OK;
 }

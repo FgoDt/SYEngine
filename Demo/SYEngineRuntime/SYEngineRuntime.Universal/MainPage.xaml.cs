@@ -103,11 +103,14 @@ namespace SYEngineRuntime
             op.FileTypeFilter.Add(".f4v");
             op.FileTypeFilter.Add(".mkv");
             op.FileTypeFilter.Add(".mp4");
-            var file = await op.PickSingleFileAsync();
-            if (file != null)
+            var files = await op.PickMultipleFilesAsync();
+            if (files != null&&files.Count>0)
             {
                 var plist = new SYEngine.Playlist(SYEngine.PlaylistTypes.LocalFile);
-                plist.Append(file.Path, 0, 0);
+                foreach (var file in files)
+                { 
+                    plist.Append(file.Path, 0, 0);
+                } 
                 player.Source = await plist.SaveAndGetFileUriAsync();
             }
         }
