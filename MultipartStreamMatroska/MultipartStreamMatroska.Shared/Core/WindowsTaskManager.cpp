@@ -7,6 +7,7 @@
 #include <windows.storage.streams.h>
 #include "AsyncHelper.h"
 #include <Shcore.h>
+#pragma comment(lib,"Shcore.lib")
 using namespace ABI::Windows::Storage;
 using namespace ABI::Windows::Foundation;
 using namespace ABI::Windows::Storage::Streams;
